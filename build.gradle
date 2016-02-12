@@ -1,2 +1,4 @@
-group 'com.edibleday'
+apply plugin: 'maven'
 
+group 'com.edibleday'
+group = 'com.github.AndreasMattsson'
