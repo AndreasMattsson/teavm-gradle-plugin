@@ -22,11 +22,11 @@ repositories {
 dependencies {
     compile gradleApi()
     compile localGroovy()
-    compile "com.github.AndreasMattsson.teavm:teavm-classlib:0e8b797613dfac62d393a61189dce6ea85a857d9"
-    compile('com.github.AndreasMattsson.teavm:teavm-core:master-SNAPSHOT'){
+    compile "com.github.AndreasMattsson.teavm:teavm-classlib:c5fac36e163846d11a2952aa92d5aa9f96b1ca6f"
+    compile('com.github.AndreasMattsson.teavm:teavm-core:c5fac36e163846d11a2952aa92d5aa9f96b1ca6f'){
         exclude module: 'teavm-classlib'
     }
-    compile('com.github.AndreasMattsson.teavm:teavm-tooling:master-SNAPSHOT'){
+    compile('com.github.AndreasMattsson.teavm:teavm-tooling:c5fac36e163846d11a2952aa92d5aa9f96b1ca6f'){
         exclude module: 'teavm-classlib'
     }
     compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.0-rc-1036'
