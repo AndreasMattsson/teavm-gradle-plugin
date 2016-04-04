@@ -22,8 +22,8 @@ repositories {
 dependencies {
     compile gradleApi()
     compile localGroovy()
-    compile 'com.github.AndreasMattsson.teavm:teavm-core:-SNAPSHOT'
-    compile 'com.github.AndreasMattsson.teavm:teavm-tooling:-SNAPSHOT'
+    compile 'com.github.AndreasMattsson.teavm:teavm-core:0e8b797613dfac62d393a61189dce6ea85a857d9'
+    compile 'com.github.AndreasMattsson.teavm:teavm-tooling:0e8b797613dfac62d393a61189dce6ea85a857d9'
     compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.0-rc-1036'
     compile 'org.apache.maven:maven-plugin-api:3.3.3'
 }
