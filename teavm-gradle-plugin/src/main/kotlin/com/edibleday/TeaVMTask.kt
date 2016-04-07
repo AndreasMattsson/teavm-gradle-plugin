@@ -41,6 +41,7 @@ open class TeaVMTask : DefaultTask() {
     var generateSourceMap: Boolean = false
     var minified: Boolean = true
     var runtime: RuntimeCopyOperation = RuntimeCopyOperation.SEPARATE
+    var extraProperties: MutableMap<Any, Any>? = java.util.HashMap<Any, Any>()
 
     val log by lazy { TeaVMLoggerGlue(project.logger) }
 
@@ -51,6 +52,13 @@ open class TeaVMTask : DefaultTask() {
         tool.targetDirectory = File(installDirectory)
         tool.targetFileName = targetFileName
         tool.isMainPageIncluded = mainPageIncluded
+
+        extensions?.extraProperties?.properties?.forEach {
+            tool.properties[it.key.toString()] = it.value.toString()
+        }
+        extraProperties?.forEach {
+            tool.properties[it.key.toString()] = it.value.toString()
+        }
 
         if (project.hasProperty("mainClassName") && project.property("mainClassName") != null) {
             tool.mainClass = "${project.property("mainClassName")}"
@@ -107,6 +115,19 @@ open class TeaVMTask : DefaultTask() {
 
     }
 
+    fun extraProperties(properties : Map<Any, Any>) {
+        when(extraProperties) {
+            null -> extraProperties = properties.let { LinkedHashMap(it) }
+            else -> extraProperties?.putAll(properties)
+        }
+    }
+
+    fun extraProperty(key : Any, value : Any) {
+        when(extraProperties) {
+            null -> linkedMapOf(Pair(key, value))
+            else -> extraProperties?.put(key, value)
+        }
+    }
 
     private fun prepareClassLoader(): URLClassLoader {
         try {
