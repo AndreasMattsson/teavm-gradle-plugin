@@ -19,14 +19,18 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    teavmVersion = '46fd4f744d9b8e71968394f4e343ed88189a5576'
+}
+
 dependencies {
     compile gradleApi()
     compile localGroovy()
-    compile "com.github.AndreasMattsson.teavm:teavm-classlib:c5fac36e163846d11a2952aa92d5aa9f96b1ca6f"
-    compile('com.github.AndreasMattsson.teavm:teavm-core:c5fac36e163846d11a2952aa92d5aa9f96b1ca6f'){
+    compile "com.github.AndreasMattsson.teavm:teavm-classlib:$teavmVersion"
+    compile("com.github.AndreasMattsson.teavm:teavm-core:$teavmVersion"){
         exclude module: 'teavm-classlib'
     }
-    compile('com.github.AndreasMattsson.teavm:teavm-tooling:c5fac36e163846d11a2952aa92d5aa9f96b1ca6f'){
+    compile("com.github.AndreasMattsson.teavm:teavm-tooling:$teavmVersion"){
         exclude module: 'teavm-classlib'
     }
     compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.0-rc-1036'
