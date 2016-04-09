@@ -20,7 +20,7 @@ repositories {
 }
 
 ext {
-    teavmVersion = '0b9f15403b250a8a7280ee98696eceee0a609eb2'
+    teavmVersion = '72b5028ec9857a4757cedd231c2132aa470881f9'
 }
 
 dependencies {
